@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    .box{
+        padding: 30px;
+        text-align: center;
+        border: 2px solid #aaa;
+        border-radius: 7px;
+        h2{
+            margin-bottom: 15px;
+            color: #222
+        }
+        textarea{
+            width: 100%;
+            height: 150px;
+            resize: none;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            border: 2px solid cadetblue;
+            font-size: 20px;
+        }
+        .select{
+            position: relative;
+            width: 100%;
+            margin-bottom: 15px;
+            &::after{
+                content: "";
+                position: absolute;
+                border: 7px solid transparent;
+                border-top-color: #777;
+                top: 60%;
+                right: 10px;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+            select{
+                width: 100%;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                border: 2px solid cadetblue;
+                color: #777;
+                appearance: none;
+            }
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            cursor: pointer;
+            position: relative;
+            i{
+                font-size: 20px;
+                color: #222
+            }
+            &::before, &::after{
+                content: "";
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                pointer-events: none;
+                border: 1px solid #ff7708;
+                opacity: 0;
+            }
+            &.active::before, &.active::after{
+                animation: played 2s ease-in-out infinite;
+            }
+        }
+    }
+}
+@keyframes played {
+    0%,75%{
+        width: 65px;
+        height: 65px;
+        opacity: 0.5;
+    }
+    50%,100%{
+        width: 50px;
+        height: 50px;
+        opacity: 0.2;
+    }
+}
